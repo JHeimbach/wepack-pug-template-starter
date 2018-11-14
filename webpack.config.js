@@ -111,6 +111,10 @@ module.exports = {
       filename: 'css/main.css'
     }),
     new CleanWebpackPlugin(['dist']),
-  ].concat(loadView())
-
+  ].concat(loadView()),
+  devServer: {
+    overlay: true,
+    watchContentBase: true,
+    contentBase: path.join(__dirname, 'dist'),
+  }
 }
