@@ -4,12 +4,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 function loadView () {
-  const testFolder = './src/views'
   const fs = require('fs')
 
   let configs = [];
 
-  fs.readdirSync(testFolder).forEach( file => {
+  fs.readdirSync('./src/views').forEach( file => {
     let fileParts = file.split('.');
     if (fileParts.length === 2 && fileParts[1] === 'pug' && file.indexOf('_') !== 0) {
       configs.push(new HtmlWebpackPlugin({
